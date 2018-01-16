@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 
 # Create the scatter plot
-g18002016.plot(kind='scatter', x='1800', y='2016')
+data.plot(kind='scatter', x='1800', y='2016')
 
 # Specify axis labels
 plt.xlabel('Life Expectancy by Country in 1800')
