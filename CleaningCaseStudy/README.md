@@ -119,7 +119,10 @@ max     84.800000   84.80000   84.800000
 
 For code see [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
 
-The purpose of this step was to visually check the data for insights as well as for errors. 
+The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 2016:
+
+![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
+
 [Table of Contents](#table-of-contents)
 
 
