@@ -69,7 +69,7 @@ As expected, the colums include the range of years in the data set. However, the
 1  52.72  
 ```
 
-Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. This means that the 999 rows of data are for 998 countries. **_In my data cleaning process, I will have to change the name of the first column to "Country Names" to accurately show what data is given in it._** Next, I printed basic descriptive statistics that may have been useful in the data cleaning process. 
+Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. **_In my data cleaning process, I will have to change the name of the first column to "Country Names" to accurately show what data is given in it._** Next, I printed basic descriptive statistics that may have been useful in the data cleaning process. 
 
 ```python
 >>> print(data.describe())
@@ -117,6 +117,9 @@ max     84.800000   84.80000   84.800000
 
 ## Visualizing Data
 
+For code see [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
+
+The purpose of this step was to visually check the data for insights as well as for errors. 
 [Table of Contents](#table-of-contents)
 
 
