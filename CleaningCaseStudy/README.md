@@ -1,4 +1,4 @@
-# Data Cleaning Case Study
+# Data Cleaning Case Study - Life Expectancey
 
 This Case Study may be found at the end of the [Cleaning Data in Python](https://www.datacamp.com/courses/cleaning-data-in-python) course provided by Data Camp.
 
