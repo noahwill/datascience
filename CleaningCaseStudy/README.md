@@ -10,6 +10,7 @@ The course itself used Gapminder data that showed life expectancy by country fro
 * [Importing Data](#importing-data)
 * [Initial Exploration](#initial-exploration)
 * [Visualizing Data](#visualizing-data)
+* [The Question at Hand](#the-question-at-hand)
 
 ## Formatting Data
 
@@ -34,7 +35,7 @@ In order to help my workflow, I performed a few preliminary commands to show wha
 (999, 218)
 ```
 
-So, I know that the shape of the data frame is 999 rows by 218 columns. **_What are the column names?_**
+So, I know that the shape of the data frame is 999 rows by 218 columns. Since this is country data, I can assume that the rows will be the country names. However, it is probably an error that there are 999 rows as I do not believe there are 999 countries represented in the data. **_What are the column names?_**
 
 ```python 
 >>> print(data.columns)
@@ -123,6 +124,12 @@ The purpose of this step was to visually check the data for insights as well as 
 
 ![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
 
+This plot reveals what is already common knowledge about the world: life expectancy has drastically increased since the 1800s. An error that this plot could have made me aware of could have been a constant life expectancy for any country which would have shown itself by data falling on a diagonal line. 
+
 [Table of Contents](#table-of-contents)
+
+## The Question at Hand
+
+
 
 
