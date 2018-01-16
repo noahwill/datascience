@@ -15,4 +15,4 @@ assert data.columns[0] == 'Life expectancy'
 assert data.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
 
 # Check that there is only one instance of each country
-assert g1800s['Life expectancy'].value_counts()[0] == 1
+assert data['Life expectancy'].value_counts()[0] == 1
