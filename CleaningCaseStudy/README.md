@@ -143,5 +143,6 @@ assert data.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
 # Check that there is only one instance of each country
 assert g1800s['Life expectancy'].value_counts()[0] == 1
 ```
+I have a feeling I am going to have a love-hate relationship with asertions. Love because they will help me preemptively keep errors from popping up in my code. Hate because they don't actually give a response if they work. I really like to be told when stuff works...
 
-
+[Table of Contents](#table-of-contents)
