@@ -17,9 +17,13 @@ The file of data from Gapminder is downloadable as .xlxs, however for this proje
 
 That file, found in this repository as **g18002016.csv**, contains life expectancy data by country from 1800 to 2016.
 
+[Table of Contents](#table-of-contents)
+
 ## Importing Data
 
 See [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py) for importing process. 
+
+[Table of Contents](#table-of-contents)
 
 ## Initial Exploration 
 
@@ -109,8 +113,10 @@ min     45.400000   47.10000   48.860000
 75%     78.400000   78.50000   78.650000  
 max     84.800000   84.80000   84.800000
 ```
+[Table of Contents](#table-of-contents)
 
 ## Visualizing Data
 
+[Table of Contents](#table-of-contents)
 
 
