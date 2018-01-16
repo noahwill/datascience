@@ -60,5 +60,7 @@ As expected, the colums include the range of years in the data set. However, the
 
 Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. This means that the 999 rows of data are for 998 countries. **_In my data cleaning process, I will have to change the name of the first column to "Country Names" to accurately show what data is given in it._**
 
+## Visualizing the Data
+
 
 
