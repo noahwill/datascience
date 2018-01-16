@@ -132,6 +132,16 @@ This plot reveals what is already common knowledge about the world: life expecta
 
 For code see [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/assertions_check.py)
 
-I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to 0. Three assertions are also included in the code
+I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to zero. Three assertions are also included in the code: 
+```python 
+\# Check whether the first column is 'Life expectancy'
+assert data.columns[0] == 'Life expectancy'
+
+\# Check whether the values in the row are valid
+assert data.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
+
+\# Check that there is only one instance of each country
+assert g1800s['Life expectancy'].value_counts()[0] == 1
+```
 
 
