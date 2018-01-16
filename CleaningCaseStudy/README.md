@@ -130,6 +130,8 @@ This plot reveals what is already common knowledge about the world: life expecta
 
 ## The Question at Hand
 
+For code see [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/assertions_check.py)
 
+I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to 0. Three assertions are also included in the code
 
 
