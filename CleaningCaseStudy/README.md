@@ -4,6 +4,13 @@ This Case Study may be found at the end of the [Cleaning Data in Python](https:/
 
 The course itself used Gapminder data that showed life expectancy by country from 1800-1899, however for the project I am featuring here, I am using the complete data set found [here](https://www.gapminder.org/data/) by searching for "Life expectancy (years)."
 
+## Table of Contents
+
+* [Formatting Data](#formatting-data)
+* [Importing Data](#importing-data)
+* [Initial Exploration](#initial-exploration)
+* [Visualizing Data](#visualizing-data)
+
 ## Formatting Data
 
 The file of data from Gapminder is downloadable as .xlxs, however for this project I wanted to practice manipulating .csv files. So, in the .xlxs file, I replaces all the blank spaces with NaN to signify missing data points. Then, I saved the sheet as a .csv file. 
@@ -103,7 +110,7 @@ min     45.400000   47.10000   48.860000
 max     84.800000   84.80000   84.800000
 ```
 
-## Visualizing the Data
+## Visualizing Data
 
 
 
