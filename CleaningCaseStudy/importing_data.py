@@ -6,4 +6,8 @@ filename = 'gs18002016.xlsx'
 data = pd.ExcelFile(filename)
 
 # the .parse() method will select the correct sheet from the loaded .xlsx file
-df_gs = data.parse('Data')
+# three dataframes are loaded: Life Expectancy for the 1800s, 1900s, and 2000s
+df_le1800 = data.parse('1800s')
+df_le1900 = data.parse('1900s')
+df_le2000 = data.parse('2000s')
+
