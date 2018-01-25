@@ -2,16 +2,16 @@
 import matplotlib.pyplot as plt
 
 # Create the scatter plot
-data.plot(kind='scatter', x='1800', y='2016')
+data.plot(kind='scatter', x=1800, y=1899)
 
 # Specify axis labels
 plt.xlabel('Life Expectancy by Country in 1800')
-plt.ylabel('Life Expectancy by Country in 2016')
+plt.ylabel('Life Expectancy by Country in 1899')
 
 # Specify axis limits
-# Remember the descriptive statistics from the README? This is where the MAX/MIN can be found.
+# Remember the descriptive statistics from the README? The MAX/MIN are useful to define these limits
 plt.xlim(20, 55)
-plt.ylim(20, 90)
+plt.ylim(20, 55)
 
 # Display the plot
 plt.show()
