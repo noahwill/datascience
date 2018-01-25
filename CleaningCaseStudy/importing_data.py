@@ -1,6 +1,9 @@
 import pandas as pd
 
-filename = 'g18002016.csv'
+filename = 'gs18002016.xlsx'
 
-# header gives which row to use as column labels, sep gives the delimeter, na_values gives string recognized as missing values
-data = pd.read_csv(filename, header=0, sep=',', na_values=['NaN'])
+# pd.ExcelFile will load in the desired .xlsx file
+data = pd.ExcelFile(filename)
+
+# the .parse() method will select the correct sheet from the loaded .xlsx file
+df_gs = data.parse('Data')
