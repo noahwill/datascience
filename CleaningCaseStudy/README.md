@@ -14,15 +14,13 @@ The course itself used Gapminder data that showed life expectancy by country fro
 
 ## Formatting Data
 
-The file of data from Gapminder is downloadable as .xlxs, however for this project I wanted to practice manipulating .csv files. So, in the .xlxs file, I replaces all the blank spaces with NaN to signify missing data points. Then, I saved the sheet as a .csv file. 
-
-That file, found in this repository as **g18002016.csv**, contains life expectancy data by country from 1800 to 2016.
+The file of data from Gapminder is downloadable as .xlxs. That file, found in this repository as **gs18002016.xlsx**. To practice concatenating data later on in the data cleaning process, I divided life expectancy data by country into three time periods: 1800s, 1900s, and 2000s
 
 [Table of Contents](#table-of-contents)
 
 ## Importing Data
 
-See [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py) for importing process. 
+I created three data frames using the method .parse() on each of the sheets from the imported excel file. See [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py) for importing process. 
 
 [Table of Contents](#table-of-contents)
 
@@ -31,11 +29,11 @@ See [importing_data.py](https://github.com/noahwill/datascience/blob/master/Clea
 In order to help my workflow, I performed a few preliminary commands to show what the needs for cleaning were for this particular data set. 
 
 ```python
->>> print(data.shape)
-(999, 218)
+>>> print(df_le1800.shape)
+(260, 101)
 ```
 
-So, I know that the shape of the data frame is 999 rows by 218 columns. Since this is country data, I can assume that the rows will be the country names. However, it is probably an error that there are 999 rows as I do not believe there are 999 countries represented in the data. **_What are the column names?_**
+So, I know that the shape of the data frame is 260 rows by 101 columns. Since this is country data, I can assume that the rows will be the country names. **_What are the column names?_**
 
 ```python 
 >>> print(data.columns)
@@ -70,7 +68,7 @@ As expected, the colums include the range of years in the data set. However, the
 1  52.72  
 ```
 
-Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. **_In my data cleaning process, I will have to change the name of the first column to "Country Names" to accurately show what data is given in it._** Next, I printed basic descriptive statistics that may have been useful in the data cleaning process. 
+Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. Next, I printed basic descriptive statistics that may have been useful in the data cleaning process. 
 
 ```python
 >>> print(data.describe())
@@ -84,35 +82,35 @@ min     23.390000   23.390000   23.390000   19.600000   23.390000   23.390000
 75%     33.900000   33.900000   33.900000   33.800000   33.870000   33.900000   
 max     42.850000   40.300000   44.370000   44.840000   42.830000   44.270000   
 
-             1806        1807        1808        1809     ...            2007  \
-count  201.000000  201.000000  201.000000  201.000000     ...      208.000000   
-mean    31.615970   31.573134   31.376766   31.310448     ...       70.139712   
-std      4.039261    3.917339    4.017228    3.972970     ...        8.953255   
-min     23.390000   23.390000   12.480000   13.430000     ...       43.300000   
-25%     29.000000   29.000000   28.950000   28.820000     ...       64.825000   
-50%     31.800000   31.800000   31.600000   31.500000     ...       72.750000   
-75%     34.000000   34.000000   33.870000   33.800000     ...       76.925000   
-max     45.820000   43.560000   43.550000   41.740000     ...       84.500000   
+             1806        1807        1808        1809     ...            1890  \
+count  201.000000  201.000000  201.000000  201.000000     ...      201.000000   
+mean    31.615970   31.573134   31.376766   31.310448     ...       32.291045   
+std      4.039261    3.917339    4.017228    3.972970     ...        5.907298   
+min     23.390000   23.390000   12.480000   13.430000     ...        4.000000   
+25%     29.000000   29.000000   28.950000   28.820000     ...       29.200000   
+50%     31.800000   31.800000   31.600000   31.500000     ...       32.000000   
+75%     34.000000   34.000000   33.870000   33.800000     ...       35.000000   
+max     45.820000   43.560000   43.550000   41.740000     ...       50.480000   
 
-             2008        2009        2010        2011        2012        2013  \
-count  208.000000  208.000000  208.000000  208.000000  208.000000  208.000000   
-mean    70.447163   70.767740   70.969904   71.324375   71.663077   71.916106   
-std      8.800452    8.610341    8.898859    8.376540    8.217466    8.120852   
-min     44.500000   45.500000   32.200000   46.700000   46.100000   45.600000   
-25%     64.875000   65.225000   65.475000   65.600000   66.075000   66.475000   
-50%     73.000000   73.350000   73.700000   73.750000   74.050000   74.150000   
-75%     77.150000   77.425000   77.650000   77.825000   78.125000   78.300000   
-max     84.600000   84.600000   84.700000   84.700000   84.700000   84.800000   
+             1891        1892        1893        1894        1895        1896  \
+count  201.000000  201.000000  201.000000  201.000000  201.000000  201.000000   
+mean    32.475373   32.478408   32.533085   32.747214   32.811841   32.895224   
+std      5.734794    5.825318    6.018269    5.822354    6.067020    6.344388   
+min      8.000000   14.000000    8.000000   22.180000   22.000000   20.000000   
+25%     29.200000   29.000000   29.000000   29.200000   29.200000   29.000000   
+50%     32.000000   32.000000   32.000000   32.000000   32.000000   32.000000   
+75%     35.100000   35.000000   35.000000   35.000000   35.000000   35.000000   
+max     51.090000   52.730000   52.580000   52.100000   54.160000   53.840000   
 
-             2014       2015        2016  
-count  208.000000  208.00000  208.000000  
-mean    72.088125   72.32101   72.556635  
-std      8.074990    7.90202    7.738535  
-min     45.400000   47.10000   48.860000  
-25%     66.775000   67.05000   67.175000  
-50%     74.300000   74.40000   74.500000  
-75%     78.400000   78.50000   78.650000  
-max     84.800000   84.80000   84.800000
+             1897        1898        1899  
+count  201.000000  201.000000  201.000000  
+mean    32.964279   32.994080   32.962985  
+std      6.390669    6.336805    6.325265  
+min     19.000000   19.700000   18.900000  
+25%     29.200000   29.160000   29.000000  
+50%     32.000000   32.000000   32.000000  
+75%     35.000000   35.180000   35.180000  
+max     54.140000   54.690000   51.620000
 ```
 [Table of Contents](#table-of-contents)
 
@@ -120,7 +118,7 @@ max     84.800000   84.80000   84.800000
 
 For code see [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
 
-The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 2016:
+The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 1899:
 
 ![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
 
