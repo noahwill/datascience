@@ -120,8 +120,6 @@ For code see [visualizing_data.py](https://github.com/noahwill/datascience/blob/
 
 The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 1899:
 
-![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
-
 This plot reveals what is already common knowledge about the world: life expectancy has drastically increased since the 1800s. An error that this plot could have made me aware of could have been a constant life expectancy for any country which would have shown itself by data falling on a diagonal line. 
 
 [Table of Contents](#table-of-contents)
