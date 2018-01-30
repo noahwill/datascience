@@ -6,7 +6,6 @@ import numpy as np
 
 
 # IMPORTING_DATA.PY
-
 filename = 'gs18002016.xlsx'
 
 # pd.ExcelFile will load in the desired .xlsx file
@@ -20,7 +19,6 @@ df_le2000 = data.parse('2000s', head=0)
 
 
 #VISUALIZING_DATA.PY
-
 # Create the scatter plot
 df_le1800.plot(kind='scatter', x=1800, y=1899)
 
@@ -40,8 +38,8 @@ plt.show()
 #ASSERT_CHECK.PY
 def check_null_or_valid(row_data):
     """Function that takes a row of data,
-    drops all missing values,
-    and checks if all remaining values are greater than or equal to 0
+    drops all missing values, and checks if 
+    all remaining values are greater than or equal to 0
     """
     no_na = row_data.dropna()[1:-1]
     numeric = pd.to_numeric(no_na)
@@ -50,12 +48,19 @@ def check_null_or_valid(row_data):
 
 # Check whether the first column is 'Life expectancy'
 assert df_le1800.columns[0] == 'Life expectancy'
+assert df_le1900.columns[0] == 'Life expectancy'
+assert df_le2000.columns[0] == 'Life expectancy'
 
 # Check whether the values in the row are valid
+# Chaining .all() twice ensures that this assertion will be applied over the entire dataframe
 assert df_le1800.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
+assert df_le1900.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
+assert df_le2000.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
 
 # Check that there is only one instance of each country
 assert df_le1800['Life expectancy'].value_counts()[0] == 1
+assert df_le1900['Life expectancy'].value_counts()[0] == 1
+assert df_le2000['Life expectancy'].value_counts()[0] == 1
 
 
 #ASSEMBLING_DATA.PY
