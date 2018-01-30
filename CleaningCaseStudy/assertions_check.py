@@ -9,10 +9,10 @@ def check_null_or_valid(row_data):
     return ge0
 
 # Check whether the first column is 'Life expectancy'
-assert data.columns[0] == 'Life expectancy'
+assert df_le1800.columns[0] == 'Life expectancy'
 
 # Check whether the values in the row are valid
-assert data.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
+assert df_le1800.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
 
 # Check that there is only one instance of each country
-assert data['Life expectancy'].value_counts()[0] == 1
+assert df_le1800[‘Life expectancy'].value_counts()[0] == 1
