@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 
 # Create the scatter plot
-data.plot(kind='scatter', x=1800, y=1899)
+df_le1800.plot(kind='scatter', x=1800, y=1899)
 
 # Specify axis labels
 plt.xlabel('Life Expectancy by Country in 1800')
