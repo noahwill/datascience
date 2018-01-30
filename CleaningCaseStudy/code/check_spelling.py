@@ -1,5 +1,5 @@
 # Create the series of countries: countries
-countries = gapminder.country
+countries = gapminder_melt.country
 
 # Drop all the duplicates from countries
 countries = countries.drop_duplicates()
