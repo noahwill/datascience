@@ -1,11 +1,11 @@
 # Assert that country does not contain any missing values
-assert pd.notnull(gapminder.country).all()
+assert pd.notnull(gapminder_melt.country).all()
 
 # Assert that year does not contain any missing values
-assert pd.notnull(gapminder.year).all()
+assert pd.notnull(gapminder_melt.year).all()
 
 # Drop the missing values
-gapminder = gapminder.dropna()
+gapminder = gapminder_melt.dropna()
 
 # Print the shape of gapminder
-print(gapminder.shape)
+print(gapminder_melt.shape)
