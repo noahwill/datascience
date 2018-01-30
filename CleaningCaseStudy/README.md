@@ -11,6 +11,7 @@ The course itself used Gapminder data that showed life expectancy by country fro
 * [Initial Exploration](#initial-exploration)
 * [Visualizing Data](#visualizing-data)
 * [The Question at Hand](#the-question-at-hand)
+* [Assembling and Melting the Data](#assembling-and-melting-the-data)
 
 ## Formatting Data
 
