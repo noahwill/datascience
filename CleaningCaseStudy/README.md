@@ -20,18 +20,15 @@ The file of data from Gapminder is downloadable as .xlxs. That file, found in th
 
 ## Importing Data
 
-[importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py)
+Code: [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py)
 
 I created three data frames using the method .parse() on each of the sheets from the imported excel file.
 
 ```python 
 filename = 'gs18002016.xlsx'
 
-# pd.ExcelFile will load in the desired .xlsx file
 data = pd.ExcelFile(filename)
 
-# the .parse() method will select the correct sheet from the loaded .xlsx file
-# three dataframes are loaded: Life Expectancy for the 1800s, 1900s, and 2000s
 df_le1800 = data.parse('1800s', head=0)
 df_le1900 = data.parse('1900s', head=0)
 df_le2000 = data.parse('2000s', head=0)
@@ -50,42 +47,49 @@ In order to help my workflow, I performed a few preliminary commands to show wha
 So, I know that the shape of the data frame is 260 rows by 101 columns. Since this is country data, I can assume that the rows will be the country names. **_What are the column names?_**
 
 ```python 
->>> print(data.columns)
-Index([u'Life expectancy', u'1800', u'1801', u'1802', u'1803', u'1804',
-       u'1805', u'1806', u'1807', u'1808',
+>>> print(df_le1800.columns)
+Index([u'Life expectancy',               1800,               1801,
+                     1802,               1803,               1804,
+                     1805,               1806,               1807,
+                     1808,
        ...
-       u'2007', u'2008', u'2009', u'2010', u'2011', u'2012', u'2013', u'2014',
-       u'2015', u'2016'],
-      dtype='object', length=218)
+                     1890,               1891,               1892,
+                     1893,               1894,               1895,
+                     1896,               1897,               1898,
+                     1899],
+      dtype='object', length=101)
 ```
 
 As expected, the colums include the range of years in the data set. However, the first column, "Life expectancy" is probably the title for the kind of data given for each year by country. **_I printed the head next to see what the "Life expectancy" column contained._**
 
 ```python
->>> print(data.head(5))
-         Life expectancy   1800   1801   1802   1803   1804   1805   1806  \
+>>> print(df_le1800.head(5))
+        Life expectancy   1800   1801   1802   1803   1804   1805   1806  \
 0               Abkhazia    NaN    NaN    NaN    NaN    NaN    NaN    NaN   
 1            Afghanistan  28.21  28.20  28.19  28.18  28.17  28.16  28.15   
 2  Akrotiri and Dhekelia    NaN    NaN    NaN    NaN    NaN    NaN    NaN   
 3                Albania  35.40  35.40  35.40  35.40  35.40  35.40  35.40   
 4                Algeria  28.82  28.82  28.82  28.82  28.82  28.82  28.82   
 
-    1807   1808  ...    2007  2008  2009  2010  2011  2012  2013  2014  2015  \
-0    NaN    NaN  ...     NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   
-1  28.14  28.13  ...    52.4  52.8  53.3  53.6  54.0  54.4  54.8  54.9  53.8   
-2    NaN    NaN  ...     NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   NaN   
-3  35.40  35.40  ...    76.6  76.8  77.0  77.2  77.4  77.5  77.7  77.9  78.0   
-4  28.82  28.82  ...    75.3  75.5  75.7  76.0  76.1  76.2  76.3  76.3  76.4   
+    1807   1808  ...     1890   1891   1892   1893   1894   1895   1896  \
+0    NaN    NaN  ...      NaN    NaN    NaN    NaN    NaN    NaN    NaN   
+1  28.14  28.13  ...    27.29  27.28  27.27  27.26  27.25  27.24  27.23   
+2    NaN    NaN  ...      NaN    NaN    NaN    NaN    NaN    NaN    NaN   
+3  35.40  35.40  ...    35.40  35.40  35.40  35.40  35.40  35.40  35.40   
+4  28.82  28.82  ...    28.82  28.82  28.82  28.82  28.82  28.82  28.82   
 
-    2016  
-0    NaN  
-1  52.72  
+    1897   1898   1899  
+0    NaN    NaN    NaN  
+1  27.22  27.21  27.20  
+2    NaN    NaN    NaN  
+3  35.40  35.40  35.40  
+4  28.82  28.82  28.82
 ```
 
 Here, I found out that the first column, "Life expectancy," contains all of the country names included in the data set. Next, I printed basic descriptive statistics that may have been useful in the data cleaning process. 
 
 ```python
->>> print(data.describe())
+>>> print(df_le1800.describe())
              1800        1801        1802        1803        1804        1805  \
 count  201.000000  201.000000  201.000000  201.000000  201.000000  201.000000   
 mean    31.486020   31.448905   31.463483   31.377413   31.446318   31.562537   
@@ -130,31 +134,61 @@ max     54.140000   54.690000   51.620000
 
 ## Visualizing Data
 
-For code see [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
+Code: [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
 
 The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 1899:
 
 ![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
 
-This plot reveals what is already common knowledge about the world: life expectancy has drastically increased since the 1800s. An error that this plot could have made me aware of could have been a constant life expectancy for any country which would have shown itself by data falling on a diagonal line. 
+This plot shows a potential error. The points fall on a diagonal line which means that life epectancy remained the same in the two years. Looking at the the dataframe df_le1800 closer reveals that 140 of the 260 countries did not have a change in life expectancy in the 1800s. This may be because of not having access to data for all the years for those countries.
 
 [Table of Contents](#table-of-contents)
 
 ## The Question at Hand
 
-For code see [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/assertions_check.py)
+**_How much does the average life expectancy change over each year?_**
 
-I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to zero. Three assertions are also included in the code: 
+Before answering this question, it is important to make sure that 'Life expectancy is the first column of the DataFrames. The other columns must contain only null or numeric values. Those numeric values must be >= 0. And there must only be one instance for each country. 
+
+Code: [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/assertions_check.py)
+
+I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to zero. Three assertions are also included in the code to ensure the above mentioned paramaters were met: 
 ```python 
-# Check whether the first column is 'Life expectancy'
-assert data.columns[0] == 'Life expectancy'
+assert df_le1800.columns[0] == 'Life expectancy'
 
-# Check whether the values in the row are valid
-assert data.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
+assert df_le1800.iloc[:, 1:].apply(check_null_or_valid, axis=1).all().all()
 
-# Check that there is only one instance of each country
-assert g1800s['Life expectancy'].value_counts()[0] == 1
+assert df_le1800['Life expectancy'].value_counts()[0] == 1
 ```
+
 I have a feeling I am going to have a love-hate relationship with asertions. Love because they will help me preemptively keep errors from popping up in my code. Hate because they don't actually give a response if they work. I really like to be told when stuff works...
 
 [Table of Contents](#table-of-contents)
+
+## Assembling and Melting the Data
+
+Code: [assert_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_check.py)
+      [melt_df.py]
+I then concatenated the three DataFrames row-wise. 
+```python 
+gapminder = pd.concat([df_le1800, df_le1900, df_le2000])
+```
+
+Then I melted gapminder to have only three columns: 'country', 'year', and 'life_expectancy'
+```python
+gapminder_melt = pd.melt(gapminder, id_vars = 'Life expectancy')
+gapminder_melt.columns = ['country', 'year', 'life_expectancy']
+```
+
+After doing so, I ran a quick .head() test on the new DataFrame _gapminder_melt_ to see if the concatenation was successful. The output was:
+```python 
+                 country  year  life_expectancy
+0               Abkhazia  1800              NaN
+1            Afghanistan  1800            28.21
+2  Akrotiri and Dhekelia  1800              NaN
+3                Albania  1800            35.40
+4                Algeria  1800            28.82
+```
+Success! I created a workable tidier DataFrame that has all 218 columns of data from 1800 to 2016.
+
+
