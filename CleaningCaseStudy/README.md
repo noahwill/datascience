@@ -20,8 +20,22 @@ The file of data from Gapminder is downloadable as .xlxs. That file, found in th
 
 ## Importing Data
 
-I created three data frames using the method .parse() on each of the sheets from the imported excel file. See [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py) for importing process. 
+[importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py)
 
+I created three data frames using the method .parse() on each of the sheets from the imported excel file.
+
+```python 
+filename = 'gs18002016.xlsx'
+
+# pd.ExcelFile will load in the desired .xlsx file
+data = pd.ExcelFile(filename)
+
+# the .parse() method will select the correct sheet from the loaded .xlsx file
+# three dataframes are loaded: Life Expectancy for the 1800s, 1900s, and 2000s
+df_le1800 = data.parse('1800s', head=0)
+df_le1900 = data.parse('1900s', head=0)
+df_le2000 = data.parse('2000s', head=0)
+```
 [Table of Contents](#table-of-contents)
 
 ## Initial Exploration 
