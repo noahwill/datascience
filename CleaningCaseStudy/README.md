@@ -11,7 +11,7 @@ The course itself used Gapminder data that showed life expectancy by country fro
 * [Initial Exploration](#initial-exploration)
 * [Visualizing Data](#visualizing-data)
 * [The Question at Hand](#the-question-at-hand)
-* [Assembling and Melting the Data](#assembling-and-melting-the-data)
+* [Assembling and Melting Data](#assembling-and-melting-data)
 
 ## Formatting Data
 
@@ -166,10 +166,10 @@ I have a feeling I am going to have a love-hate relationship with asertions. Lov
 
 [Table of Contents](#table-of-contents)
 
-## Assembling and Melting the Data
+## Assembling and Melting Data
 
 Code: [assert_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_check.py)
-      [melt_df.py]
+      [melt_df.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/melt_df.py)
 I then concatenated the three DataFrames row-wise. 
 ```python 
 gapminder = pd.concat([df_le1800, df_le1900, df_le2000])
