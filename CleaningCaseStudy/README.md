@@ -2,7 +2,9 @@
 
 This Case Study may be found at the end of the [Cleaning Data in Python](https://www.datacamp.com/courses/cleaning-data-in-python) course provided by Data Camp.
 
-The course itself used Gapminder data that showed life expectancy by country from 1800-1899, however for the project I am featuring here, I am using the complete data set found [here](https://www.gapminder.org/data/) by searching for "Life expectancy (years)."
+The complete data set used in this study may be found [here](https://www.gapminder.org/data/) by searching for "Life expectancy (years)."
+
+The final code has been compiled into [master_cleaner.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/master_cleaner.py)
 
 ## Table of Contents
 
