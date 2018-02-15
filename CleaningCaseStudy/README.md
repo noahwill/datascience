@@ -12,12 +12,15 @@ The course itself used Gapminder data that showed life expectancy by country fro
 * [Visualizing Data](#visualizing-data)
 * [The Question at Hand](#the-question-at-hand)
 * [Assembling and Melting Data](#assembling-and-melting-data)
+* [Asserting Data Types](#asserting_data_types)
+* [Checking Country Spelling](#checking_country_spelling)
+* [More Assertions](#more_assertions)
+* [Wrapping Up](#wrapping_up)
 
 ## Formatting Data
 
 The file of data from Gapminder is downloadable as .xlxs. That file, found in this repository as **gs18002016.xlsx**. To practice concatenating data later on in the data cleaning process, I divided life expectancy data by country into three time periods: 1800s, 1900s, and 2000s
 
-[Table of Contents](#table-of-contents)
 
 ## Importing Data
 
@@ -34,7 +37,6 @@ df_le1800 = data.parse('1800s', head=0)
 df_le1900 = data.parse('1900s', head=0)
 df_le2000 = data.parse('2000s', head=0)
 ```
-[Table of Contents](#table-of-contents)
 
 ## Initial Exploration 
 
@@ -131,7 +133,6 @@ min     19.000000   19.700000   18.900000
 75%     35.000000   35.180000   35.180000  
 max     54.140000   54.690000   51.620000
 ```
-[Table of Contents](#table-of-contents)
 
 ## Visualizing Data
 
@@ -142,8 +143,6 @@ The purpose of this step was to visually check the data for insights as well as 
 ![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_1.png)
 
 This plot shows a potential error. The points fall on a diagonal line which means that life epectancy remained the same in the two years. Looking at the the dataframe df_le1800 closer reveals that 140 of the 260 countries did not have a change in life expectancy in the 1800s. This may be because of not having access to data for all the years for those countries.
-
-[Table of Contents](#table-of-contents)
 
 ## The Question at Hand
 
@@ -164,12 +163,11 @@ assert df_le1800['Life expectancy'].value_counts()[0] == 1
 
 I have a feeling I am going to have a love-hate relationship with asertions. Love because they will help me preemptively keep errors from popping up in my code. Hate because they don't actually give a response if they work. I really like to be told when stuff works...
 
-[Table of Contents](#table-of-contents)
-
 ## Assembling and Melting Data
 
-Code: [assert_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_check.py)
+Code: [assert_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_check.py), 
       [melt_df.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/melt_df.py)
+
 I then concatenated the three DataFrames row-wise. 
 ```python 
 gapminder = pd.concat([df_le1800, df_le1900, df_le2000])
@@ -178,6 +176,7 @@ gapminder = pd.concat([df_le1800, df_le1900, df_le2000])
 Then I melted gapminder to have only three columns: 'country', 'year', and 'life_expectancy'
 ```python
 gapminder_melt = pd.melt(gapminder, id_vars = 'Life expectancy')
+
 gapminder_melt.columns = ['country', 'year', 'life_expectancy']
 ```
 
@@ -190,6 +189,91 @@ After doing so, I ran a quick .head() test on the new DataFrame _gapminder_melt_
 3                Albania  1800            35.40
 4                Algeria  1800            28.82
 ```
-Success! I created a workable tidier DataFrame that has all 218 columns of data from 1800 to 2016.
+Success! I created a workable tidier DataFrame that has all 218 columns of data from 1800 to 2016 in 3 new columns. 
 
+## Asserting Data Types
 
+Code: [assert_type.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_type.py)
+
+Before moving forward, I have to checked if I had all the expected data types in my new columns. The expected data types for the new columns: 'country':'object', 'year':'int64', and 'life_expectancy':'float64.' 
+
+As with all the other assertions written in this case study, if there is no violations of the assertion within the data set, there will be no error given. 
+
+```python
+assert gapminder_melt.country.dtypes == np.object
+
+assert gapminder_melt.year.dtypes == np.int64
+
+assert gapminder_melt.life_expectancy.dtypes == np.float64
+```
+
+## Checking Country Spelling
+
+Code: [check_spelling.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/check_spelling.py) 
+
+With all the data types verified, I moved on to drop any duplicates and check if the country names all contained valid and normal characters. I needed to create a regular expression that matches capital letters at the beginning of country names, any number of lowercase letters, and spaces between words in a name.
+
+```python 
+pattern = '^[A-Za-z\.\s]*$'
+```
+
+Then I created a boolean vector 'mask' to verify that the country names (converted with .str) contained the pattern. Then I inverted the mask in order to extract the country names that did not match the pattern. 
+
+```python 
+mask = countries.str.contains(pattern)
+
+mask_inverse = ~mask
+
+invalid_countries = countries.loc[mask_inverse]
+```
+
+The invalid countries were:
+
+```python 
+    49            Congo, Dem. Rep.
+    50                 Congo, Rep.
+    53               Cote d'Ivoire
+    73      Falkland Is (Malvinas)
+    93               Guinea-Bissau
+    98            Hong Kong, China
+    118    United Korea (former)\n
+    131               Macao, China
+    132             Macedonia, FYR
+    145      Micronesia, Fed. Sts.
+    161            Ngorno-Karabakh
+    187             St. Barthélemy
+    193     St.-Pierre-et-Miquelon
+    225                Timor-Leste
+    251      Virgin Islands (U.S.)
+    252       North Yemen (former)
+    253       South Yemen (former)
+    258                      Åland
+    Name: country, dtype: object
+```
+
+Obviously not all of these names were invalid, they just didn't meet my pattern's standard for consistency, but there were a few cases like 'Åland' that would have been good to investigate for breaking the pattern. 
+
+## More Assertions
+
+Code: [assert_nona.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_nona.py)
+
+After the country names were investigated, I made sure 'country' and 'year' did not contain any missing values and dropped rows that contained missing values in the 'life_expectancy' column.
+
+```python 
+assert pd.notnull(gapminder_melt.country).all()
+
+assert pd.notnull(gapminder_melt.year).all()
+
+gapminder = gapminder_melt.dropna()
+```
+This took the rows of the DataFrame down from 169260 to 43857, which is probably not the best thing since that is about 75% of the data. In later courses since, I have learned how to fill in and impute missing values. However in this course, dropping the values was the best option since I did not know these methods yet. 
+
+## Wrapping Up
+
+Code: [plot_wrapup.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/plot_wrapup.py)
+
+Finally, with this new clean DataFrame, I created two plots: a histogram of life_expectancy, and a line plot of aggregate life_expectancy by year. 
+
+![alt text](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/images/Figure_2.png)
+
+From the histogram plot, one can see how most of the world since 1800 has had a life expectancy of around 30-39 years. The line plot shows the trend of almost exponential life expectancy growth starting around 1900 and major historical events like wars drawing life expectancy down.
