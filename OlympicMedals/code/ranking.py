@@ -1,5 +1,5 @@
 import pandas as pd
-medals = pd.DataFrame(pd.read_csv('/Users/noah/Desktop/DFManipulation/Data/summer_1896_2008.csv'))
+medals = pd.DataFrame(pd.read_csv('summer_1896_2008.csv'))
 
 # To make a new Series for the rankings, the 'NOC' or Name of Country column is selected
 country_names = medals['NOC']
