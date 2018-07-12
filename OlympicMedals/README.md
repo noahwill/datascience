@@ -8,7 +8,7 @@ The final code has been compiled into [master_df.py]
 
 ## Table of Contents
 
-* [Ranking by Medals Won](#ranking-by-medals-won]
+* [Ranking by Medals Won](#ranking-by-medals-won)
 * [Suspicious Data](#suspicious-data)
 * [Into the Cold War!](#into-the-cold-war!)
 * [War at the Olympics](#war-at-the-olympics)
