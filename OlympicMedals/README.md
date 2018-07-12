@@ -15,12 +15,23 @@ This case study may be found at the end of the [Manipulating DataFrames with pan
 
 ## Ranking by Medals Won
 
+Code: [ranking.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/ranking.py)
+
+As a light warm up to get ready for the DataFrame gymnastics ahead, I made a simple Series and DataFrame from the data to show medal totals by country. 
+
+
 ## Suspicious Data
 
+Code: [suspicious_data.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/suspicious_data.py)
 ## Into the Cold War!
 
+Code: [into_the_cold_war.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/into_the_cold_war.py)
 ## War at the Olympics
 
+Code: [war_at_the_olympics.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/war_at_the_olympics.py)
 ## Graphs Make Me Feel Good
 
+Code: [graphs_make_us_better.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/graphs_make_us_better.py)
 ## Area Graphs Look Better
+
+Code: [area_graphs_look_better.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/area_graphs_look_better.py)
