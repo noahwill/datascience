@@ -1,10 +1,8 @@
-# Olympic Medals Case Study - Data Frame Manipulation
+# Olympic Medals Case Study - DataFrame Manipulation
 
-This Case Study may be found at the end of the [Manipulating DataFrames wih pandas](https://www.datacamp.com/courses/manipulating-dataframes-with-pandas) course provided by Data Camp.
+Is there a better way to practice manipulating DataFrames in pandas than to learn about the true nature of the Cold War? In this era of questionable political action and international relations, I would think not. In this study, I munge my way to a surpirising discovery and try to code my way to feeling better about it.
 
-The complete data set used in this study may be found [here](https://assets.datacamp.com/production/course_1650/datasets/all_medalists.csv) on the DataCamp website.
-
-The final code has been compiled into [master_df.py]
+This case study may be found at the end of the [Manipulating DataFrames with pandas](https://www.datacamp.com/courses/manipulating-dataframes-with-pandas) course provided by Data Camp. The complete data set used in this study may be found [here](https://assets.datacamp.com/production/course_1650/datasets/all_medalists.csv) on the DataCamp website.
 
 ## Table of Contents
 
