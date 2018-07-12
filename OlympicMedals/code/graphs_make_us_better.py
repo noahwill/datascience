@@ -2,7 +2,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-medals = pd.DataFrame(pd.read_csv('/Users/noah/Desktop/DFManipulation/Data/summer_1896_2008.csv'))
+medals = pd.DataFrame(pd.read_csv('summer_1896_2008.csv'))
 
 usa = medals[medals['NOC'] == 'USA']
 
