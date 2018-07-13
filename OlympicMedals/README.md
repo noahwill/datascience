@@ -152,4 +152,4 @@ Of course it is all in fun that I make the claim that the URS having more consis
 ![alt text](https://github.com/noahwill/datascience/blob/master/OlympicMedals/herb_brooks.gif)
 
 
-In the mean time, I'll have Kurt Russell as Herb Brooks, the coach of the US '80 Winter Olympics Hockey Team to remind me that I need to go again if I hit a wall as I continue to learn. 
+In the mean time, I'll have Kurt Russell as Herb Brooks, the coach of the US '80 Winter Olympics Hockey Team, to remind me that I need to go again if I hit a wall as I continue to learn. 
