@@ -12,6 +12,7 @@ This case study may be found at the end of the [Manipulating DataFrames with pan
 * [War at the Olympics](#war-at-the-olympics)
 * [Graphs Make Me Feel Good](#graphs-make-me-feel-good)
 * [Area Graphs Look Better](#area-graphs-look-better)
+* [Possibilities for Further Study](#possibilities-for-further-study)
 
 ## Ranking by Medals Won
 
@@ -143,3 +144,11 @@ Code: [area_graphs_look_better.py](https://github.com/noahwill/datascience/blob/
 That area plot does not really offer any kind of direction for significant interpretation, so maybe an area graph would be better. As an extra step, I made sure that the medal types were ordered categories so the area graph would be stacked 'Bronze', 'Silver', 'Gold'. 
 
 ![alt text](https://github.com/noahwill/datascience/blob/master/OlympicMedals/Figure_2.png)
+
+## Possibilitie for Further Study
+
+Of course it is all in fun that I make the claim that the URS having more consistent medal wins over the USA is of historical significance, but I think there is opportunity here for some more interesting historical investigation. Did the URS have more athletes competing than the USA in the Cold War editions of the Olympics? What contributes to winning medals in the Olympics? Is it GDP, population, unemployment, or if a country is hosting? Is there a correlation of medals to previous medals in an event? I'd love to revisit this data and try to answer these questions when I am more of a pythonista!
+
+In the mean time, I'll have Kurt Russell as Herb Brooks, the coach of the US '80 Winter Olympics Hockey Team to remind me that I need to go again if I hit a wall as I continue to learn. 
+
+![alt text](https://github.com/noahwill/datascience/blob/master/OlympicMedals/herb_brooks.gif)
