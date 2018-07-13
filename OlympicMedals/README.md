@@ -42,13 +42,55 @@ FRA     475.0   378.0   461.0  1314.0
 ITA     374.0   460.0   394.0  1228.0
 ```
 
-Strangely, the medal types are out of their usual olympic order. Later, I make an area graph that first converts the 'Medal' column in the medals DataFrame to categorical data with ordered categories. 
+Strangely, the medal types are out of their usual Olympic order. Later, I make an area graph that first converts the 'Medal' column in the medals DataFrame to categorical data with ordered categories. 
 
 ## Suspicious Data
 
 Code: [suspicious_data.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/suspicious_data.py)
 
-Now for some good old data cleaning to see if there are any notable inconsistencies. First, I took a look at the columns of the DataFrame; there were two columns that may have had the same data in them: 'Gender' and 'Event_gender'
+Now for some good old data cleaning to see if there are any notable inconsistencies. First, I took a look at the columns of the DataFrame; there were two columns that may have had the same data in them: 'Gender' and 'Event_gender'.
+
+```python
+print(medals.columns)
+Index(['City', 'Edition', 'Sport', 'Discipline', 'Athlete', 'NOC', 'Gender',
+       'Event', 'Event_gender', 'Medal'],
+      dtype='object')
+```
+
+I tested to see if there were any entries in these columns that did not match by selecting the two columns and dropping all duplicates. The resulting DataFrame, ev_gender_uniques, shows the five different entries that exist when looking at 'Gender' and 'Event_gender' together. One of these entries shows 'W' and 'Men' entries for one event: 
+
+```python
+print(ev_gen_uniques)
+      Event_gender Gender
+0                M    Men
+348              X    Men
+416              W  Women
+639              X  Women
+23675            W    Men
+```
+
+To investigate further, I created a DataFrame that grouped medals by 'Gender' and 'Event_gender' then counted the unique entries in each category. This showed that there is only one occurrance of the 'W' 'Men' pair, which means that the entry was probably a mistake:
+
+```python
+print(medal_count_by_gender)
+                      City  Edition  Sport  ...      NOC  Event  Medal
+Event_gender Gender                         ...                       
+M            Men     20067    20067  20067  ...    20067  20067  20067
+W            Men         1        1      1  ...        1      1      1
+             Women    7277     7277   7277  ...     7277   7277   7277
+X            Men      1653     1653   1653  ...     1653   1653   1653
+             Women     218      218    218  ...      218    218    218
+
+[5 rows x 8 columns]
+```
+
+Finally, I created a boolean series that selected the erroneous datum and returned it as a DataFrame. It shows that Joyce Chepchumba was a man that won a medal in a women's event. A Google search shows that she was in fact a woman! I wonder if this was an engineered mistake in the data for the sake of the exercise or if someone making the data set actually made this mistake: 
+
+```python
+print(suspect)
+         City  Edition      Sport Discipline            Athlete  NOC Gender     Event Event_gender   Medal
+23675  Sydney     2000  Athletics  Athletics  CHEPCHUMBA, Joyce  KEN    Men  marathon            W  Bronze
+```
 
 ## Into the Cold War!
 
