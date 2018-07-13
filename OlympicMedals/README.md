@@ -131,6 +131,10 @@ If winning Olympic medals during the Cold War was as serious as serious as the r
 ## Graphs Make Me Feel Good
 
 Code: [graphs_make_us_better.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/graphs_make_us_better.py)
+
+To try to help cope with the realization of this loss, I turned to graphs, my comfort of choice when it comes to data. I created a simple plot by selecting just the data for the USA, grouping by Olympic Edition and Medal type, and aggregating the count over athlete names. The resulting DataFrame had two indecies so I used the .unstack method to assign the medal types as columns. 
+
+
 ## Area Graphs Look Better
 
 Code: [area_graphs_look_better.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/area_graphs_look_better.py)
