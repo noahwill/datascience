@@ -47,6 +47,9 @@ Strangely, the medal types are out of their usual olympic order. Later, I make a
 ## Suspicious Data
 
 Code: [suspicious_data.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/suspicious_data.py)
+
+Now for some good old data cleaning to see if there are any notable inconsistencies. First, I took a look at the columns of the DataFrame; there were two columns that may have had the same data in them: 'Gender' and 'Event_gender'
+
 ## Into the Cold War!
 
 Code: [into_the_cold_war.py](https://github.com/noahwill/datascience/blob/master/OlympicMedals/code/into_the_cold_war.py)
