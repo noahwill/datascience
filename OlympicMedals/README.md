@@ -147,7 +147,7 @@ That area plot does not really offer any kind of direction for significant inter
 
 ## Possibilitie for Further Study
 
-Of course it is all in fun that I make the claim that the URS having more consistent medal wins over the USA is of historical significance, but I think there is opportunity here for some more interesting historical investigation. Did the URS have more athletes competing than the USA in the Cold War editions of the Olympics? What contributes to winning medals in the Olympics? Is it GDP, population, unemployment, or if a country is hosting? Is there a correlation of medals to previous medals in an event? I'd love to revisit this data and try to answer these questions when I am more of a pythonista!
+Of course it is all in fun that I make the claim that the URS having more consistent medal wins over the USA is of historical significance, but I think there is opportunity here for some more interesting historical investigation. Why is there a massive spike in medals won for the USA after 1900? What effect if any did financial crises have on medals won in the Olympics? Did the URS have more athletes competing than the USA in the Cold War editions of the Olympics? What contributes to winning medals in the Olympics? Is it GDP, population, unemployment, or if a country is hosting? Is there a correlation of medals to previous medals in an event? I'd love to revisit this data and try to answer these questions when I am more of a pythonista!
 
 ![alt text](https://github.com/noahwill/datascience/blob/master/OlympicMedals/herb_brooks.gif)
 
