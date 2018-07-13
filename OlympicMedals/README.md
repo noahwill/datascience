@@ -134,6 +134,7 @@ Code: [graphs_make_us_better.py](https://github.com/noahwill/datascience/blob/ma
 
 To try to help cope with the realization of this loss, I turned to graphs, my comfort of choice when it comes to data. I created a simple plot by selecting just the data for the USA, grouping by Olympic Edition and Medal type, and aggregating the count over athlete names. The resulting DataFrame had two indecies so I used the .unstack method to assign the medal types as columns. 
 
+![alt text](https://github.com/noahwill/datascience/blob/master/OlympicMedals/Figure_1.png)
 
 ## Area Graphs Look Better
 
