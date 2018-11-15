@@ -152,7 +152,7 @@ This plot shows a potential error. The points fall on a diagonal line which mean
 
 Before answering this question, it is important to make sure that 'Life expectancy is the first column of the DataFrames. The other columns must contain only null or numeric values. Those numeric values must be >= 0. And there must only be one instance for each country. 
 
-Code: [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assertions_check.py)
+Code: [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assert_check.py)
 
 I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to zero. Three assertions are also included in the code to ensure the above mentioned paramaters were met: 
 ```python 
