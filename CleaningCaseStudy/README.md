@@ -26,7 +26,7 @@ The file of data from Gapminder is downloadable as .xlxs. That file, found in th
 
 ## Importing Data
 
-Code: [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/importing_data.py)
+Code: [importing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/importing_data.py)
 
 I created three data frames using the method .parse() on each of the sheets from the imported excel file.
 
@@ -138,7 +138,7 @@ max     54.140000   54.690000   51.620000
 
 ## Visualizing Data
 
-Code: [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/visualizing_data.py)
+Code: [visualizing_data.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/visualizing_data.py)
 
 The purpose of this step was to visually check the data for insights as well as for errors. Here is the output comparing the life expectancy in 1800 against that of 1899:
 
@@ -152,7 +152,7 @@ This plot shows a potential error. The points fall on a diagonal line which mean
 
 Before answering this question, it is important to make sure that 'Life expectancy is the first column of the DataFrames. The other columns must contain only null or numeric values. Those numeric values must be >= 0. And there must only be one instance for each country. 
 
-Code: [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/assertions_check.py)
+Code: [assertions_check.py](https://github.com/noahwill/datascience/blob/master/CleaningCaseStudy/code/assertions_check.py)
 
 I wrote a quick function to drop all missing row values and check if the remaining values are greater-than or equal to zero. Three assertions are also included in the code to ensure the above mentioned paramaters were met: 
 ```python 
