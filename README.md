@@ -1,6 +1,6 @@
 # Noah will DataScience! 
 
-_This is the repository containing projects compiled using my python skills._
+_This is the repository containing projects from the DataCamp 'Python for Data Science' course._
 
 ## Case Studies:
 
